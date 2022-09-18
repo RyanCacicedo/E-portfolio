@@ -40,6 +40,10 @@ li {
   flex: 1;
 }
 
+.container {
+  padding: 50px 0;
+}
+
 .row {
   width: 100%;
   max-width: 800px;
@@ -51,7 +55,11 @@ li {
 }
 
 section:nth-child(even) {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
+}
+
+.section__title {
+  margin-bottom: 20px;
 }
 
 /* Navigation Bar */
@@ -86,7 +94,7 @@ nav {
 }
 
 .nav__link--anchor-primary:hover {
-  background-color: #5d3eff;
+  background-color: #3ecfff;
 }
 
 .personel__logo {
@@ -137,6 +145,7 @@ nav {
 .about-me__info--para {
   font-size: 20px;
   margin-bottom: 28px;
+  color: #242424;
 }
 
 .about-me__info--title {
@@ -151,11 +160,59 @@ nav {
 }
 
 .about-me__img--container {
-    flex: 1;
-    display: flex;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .about-me__img {
-    width: 100%;
+  width: 100%;
+}
+
+/* TECH - STACK */
+
+.language {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.language__img {
+  width: 100%;
+  max-width: 100px;
+  transition: all 300ms ease;
+}
+
+.language:hover .language__img {
+    filter: brightness(80%);
+    opacity: .86;
+    transform: scale(.9);
+}
+
+.language__img--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 16px;
+}
+
+.language__list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.language__name {
+    position: absolute;
+    bottom: 0;
+    transform: scale(0);
+    transition: all 300ms ease;
+    font-size: 20px;
+    opacity: 0;
+}
+
+.language:hover .language__name {
+    transform: scale(1);
+    opacity: 1;
 }
