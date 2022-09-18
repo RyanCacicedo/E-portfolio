@@ -34,6 +34,35 @@ p {
 
 a {
     text-decoration: none;
+    position: relative;
+    transition: opacity 300ms ease;
+}
+
+i:hover {
+    opacity: 0.7;
+}
+
+.link__hover-effect:after {
+content: "";
+position: absolute;
+height: 3px;
+width: 0;
+bottom: -3px;
+right: 0;
+transition: all 300ms ease;
+}
+
+.link__hover-effect:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.link__hover-effect--white:after {
+    background-color: #fff;
+}
+
+.link__hover-effect--black:after {
+    background-color: #000;
 }
 
 li {
@@ -49,13 +78,14 @@ li {
 }
 
 .container {
-  padding: 50px 0;
+  padding: 50px 0 50px 12px;
 }
 
 .row {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 12px;
 }
 
 .text--purple {
@@ -80,6 +110,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 12px;
 }
 
 .nav__link--list {
@@ -102,7 +133,7 @@ nav {
 }
 
 .nav__link--anchor-primary:hover {
-  background-color: #3ecfff;
+  background-color: #5d3eff;
 }
 
 .personel__logo {
@@ -141,6 +172,19 @@ nav {
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
   margin-bottom: 28px;
+  animation: animated-profile-picture 800ms 200ms backwards;
+}
+
+@keyframes animated-profile-picture {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .about-me__picture {
@@ -154,10 +198,12 @@ nav {
   font-size: 20px;
   margin-bottom: 28px;
   color: #242424;
+  animation: fade-up 650ms 600ms backwards;
 }
 
 .about-me__info--title {
   margin-bottom: 16px;
+  animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__link {
@@ -165,6 +211,21 @@ nav {
   color: #242424;
   text-decoration: none;
   padding: 0 16px;
+}
+
+.about-me__links {
+    animation: fade-up 650ms 800ms backwards;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .about-me__img--container {
@@ -175,6 +236,34 @@ nav {
 
 .about-me__img {
   width: 100%;
+  padding: 30px;
+  animation: fade-in 1200ms 800ms backwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.wave {
+    display: inline-block;
+    animation: animate-wave 500ms infinite ease-in-out;
+}
+
+@keyframes animate-wave {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
 }
 
 /* TECH - STACK */
@@ -207,6 +296,7 @@ nav {
 
 .language__list {
   display: flex;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
 }
@@ -318,10 +408,6 @@ footer {
     background-color: #242424;
 }
 
-.footer__logo {
-    
-}
-
 .footer__social--list {
     margin-bottom: 28px;
     width: 100%;
@@ -365,4 +451,68 @@ footer {
 .footer__anchor:hover .footer__logo--popper {
     transform: translateX(50px);
     opacity: 1;
+}
+
+/* PHONES */
+
+@media (max-width: 768px) {
+    nav {
+        height: 68px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .about-me__info--para {
+        font-size: 18px;
+    }
+
+    .language {
+        width: calc(100%/2);
+    }
+
+    .project__description--para {
+        font-size: 14px;
+    }
+
+    .project__description {
+        left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* Smaller Phones*/
+
+@media (max-width: 480px) {
+.nav__link:not(:last-child) {
+    display: none;
+}
+.project__description {
+    padding: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.project__description--para {
+    display: none;
+}
+
+.project__description--links {
+    display: flex;
+    justify-content: center;
+}
+
+.project__description--title {
+   font-size: 32px;
+    line-height: 1;
+    text-align: center;
+}
+
+.project__description--sub-title {
+    text-align: center;
+    margin: 12px 0;
+}
+
 }
